@@ -277,3 +277,5 @@ DROP TABLE IF EXISTS clear_orders;
 SELECT DISTINCT * into clear_orders
 FROM Orders;
 select * from clear_orders;
+
+--if you mean how to deal with  data duplication, we need use normalization.
