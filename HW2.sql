@@ -22,10 +22,9 @@ group by p.ProductSubcategoryID;
 
 
 --4.How many products that do not have a product subcategory.
-select p.ProductSubcategoryID, count(distinct p.ProductID) as CountedProducts
+select count(distinct p.ProductID) as CountedProducts
 from Production.Product as p
-where p.ProductSubcategoryID is  null
-group by p.ProductSubcategoryID;
+where p.ProductSubcategoryID is  null;
 
 
 --5.Write a query to list the sum of products quantity in the Production.ProductInventory table.
@@ -38,9 +37,11 @@ from Production.ProductInventory as p;
 
 --6.Write a query to list the sum of products in the Production.ProductInventory table 
 --and LocationID set to 40 and limit the result to include just summarized quantities less than 100.
-select sum(p.quantity)  as LocationID_40_sum_of_total_quantity
+select ProductID, sum(p.quantity)  as LocationID_40_sum_of_total_quantity
 from Production.ProductInventory as p
-where p.LocationID = 40 and p.quantity < 100;
+where p.LocationID = 40 
+group by ProductID
+having sum( p.quantity) < 100;
 
 
 
@@ -57,9 +58,11 @@ where p.LocationID = 40 and p.quantity < 100;
 --from Production.ProductInventory 
 --where shelf !='N/A'  and LocationID = 40;
 
-select sum(quantity) as sum_of_products_with_shelf
+select shelf, productID, sum(quantity) as sum_of_products_with_shelf
 from Production.ProductInventory 
-where shelf !='N/A'  and LocationID = 40 and quantity < 100;
+where  LocationID = 40 
+group by ProductID, Shelf
+having sum(quantity) < 100;
 
 
 
@@ -86,25 +89,28 @@ from Production.ProductInventory
 where shelf !='N/A'
 group by shelf;
 
---11.List the members (rows) and average list price in the Production.Product table. This should be grouped independently over the Color and the Class column. 
+--11.List the members (rows) and average list price in the Production.Product table. 
+--This should be grouped independently over the Color and the Class column. 
 --Exclude the rows where Color or Class are null.
 
-select  color, avg(ListPrice)
-from Production.Product
- where color is not null
- group by color;
-
-select  class, avg(ListPrice)
-from Production.Product
- where class is not null
- group by class;
+SELECT 'Color' AS GroupType, Color AS GroupValue,
+       COUNT(*) AS TheCount, AVG(ListPrice) AS AvgPrice
+FROM Production.Product
+WHERE Color IS NOT NULL
+GROUP BY Color
+UNION ALL
+SELECT 'Class' AS GroupType, Class AS GroupValue,
+       COUNT(*) AS TheCount, AVG(ListPrice) AS AvgPrice
+FROM Production.Product
+WHERE Class IS NOT NULL
+GROUP BY Class;
 
 --12.Write a query that lists the country and province names from person. CountryRegion and person. StateProvince tables. 
 --Join them and produce a result set similar to the following
-select c.CountryRegionCode ,p.name 
+select c.CountryRegionCode ,s.name 
 from person.CountryRegion c
-join person.StateProvince p
-on c.CountryRegionCode = p.CountryRegionCode;
+join person.StateProvince s
+on c.CountryRegionCode = s.CountryRegionCode;
 
 
 
@@ -137,8 +143,8 @@ on p.ProductID = od.ProductID
 left join orders as o
 on o.OrderID = od.OrderID
 group by p.ProductID, p.ProductName,o.OrderDate
-having o.OrderDate >'2000-01-01 00:00:00.000'
-;
+having DATEDIFF(YEAR, o.OrderDate,getdate()) <25;
+
 
 
 --15.List top 5 locations (Zip Code) where the products sold most.
@@ -158,8 +164,6 @@ select top 5 num_of_products, ShipPostalCode from (
 		from orders as o 
 		left join [Order Details] as od
 		on o.OrderID = od.OrderID
-		left join products as p
-		on p.ProductID = od.ProductID
 		group by o.ShipPostalCode
 ) as subquery
 order by num_of_products desc;
@@ -179,7 +183,7 @@ left join
 	products as p
 	on p.ProductID = od.ProductID
 where 
-	o.OrderDate >'1995-01-01 00:00:00.000'
+	DATEDIFF(year, o.OrderDate, GETDATE())< 25
 group by 
 	o.ShipPostalCode
 order by 
@@ -217,7 +221,7 @@ select c.ContactName,
 	o.orderdate
 from 
 	Customers as c
-left join
+inner join
 	orders as o on o.CustomerID = c.CustomerID
 where o.OrderDate >'1998-01-01 00:00:00.000';
 
@@ -249,7 +253,7 @@ group by c.ContactName
 --on o.OrderID = od.OrderID
 --order by c.contactname;
 
-select c.contactname, 
+select c.CustomerID, c.CompanyName,  c.contactname, 
 	sum(od.quantity) as num_of_products
 from 
 	Customers as c
@@ -259,8 +263,8 @@ on c.CustomerID = o.CustomerID
 left join 
 	[Order Details] as od
 on o.OrderID = od.OrderID
-group by c.contactname
-order by c.contactname
+group by c.CustomerID, c.CompanyName,c.contactname
+order by num_of_products
 ;
 
 
@@ -277,7 +281,7 @@ left join
 on o.OrderID = od.OrderID
 group by c.contactname
 having sum(od.quantity)>100
-order by c.contactname
+order by num_of_products
 ;
 
 
@@ -296,7 +300,9 @@ order by c.contactname
 		shippers sh
 	;
 
-
+SELECT sup.CompanyName, ship.CompanyName
+FROM Suppliers sup CROSS JOIN Shippers ship
+Order By 2,1;
 
 --24.Display the products order each day. Show Order date and Product Name.
 select 
@@ -309,6 +315,7 @@ left join
 left join 
 	Products as p
 	on od.ProductID = p.ProductID
+GROUP BY o.OrderDate, p.ProductName
 order by o.orderdate;
 
 
@@ -317,6 +324,10 @@ order by o.orderdate;
 
 --select * from Employees;
 --select distinct title from Employees;
+SELECT Title, LastName + ' ' + FirstName AS Name 
+FROM Employees
+ORDER BY Title;
+
 select 
 	e1.lastname+ ' '+ e1.firstname as employee1, 
 	e1.title, 
@@ -331,34 +342,48 @@ where
 	e1.EmployeeID < e2.EmployeeID;
 
 
---26.Display all the Managers who have more than 2 employees reporting to them.
-select m.lastname, m.firstname 
-from Employees m
-where title like '%Manager%'
-	and ( 
-	select count(*)
-	from Employees e
-	where e.ReportsTo = m.EmployeeID
-	) > 2
-;
 
+--26.Display all the Managers who have more than 2 employees reporting to them.
+select * from Employees;
+--select m.lastname, m.firstname 
+--from Employees m
+--where title like '%Manager%'
+--	and ( 
+--	select count(*)
+--	from Employees e
+--	where e.ReportsTo = m.EmployeeID
+--	) > 2
+--;
+
+
+SELECT T1.EmployeeId, T1.LastName, T1.FirstName,T2.ReportsTo, COUNT(T2.ReportsTo) AS Subordinate  
+FROM Employees T1 JOIN Employees T2 ON T1.EmployeeId = T2.ReportsTo
+WHERE T2.ReportsTo IS NOT NULL
+GROUP BY T1.EmployeeId, T1.LastName, T1.FirstName,T2.ReportsTo
+HAVING COUNT(T2.ReportsTo) > 2
 
 
 --27.List all customers and suppliers together, grouped by city.
 --The result should display the following columns:
 --City，CompanyName，ContactName，Type (indicating whether the record is a Customer or a Supplier).
-select * from Suppliers;
+-- select * from Suppliers;
 
-select city, companyname, contactname, 'customer' as type
-from 
-	customers 
+-- select city, companyname, contactname, 'customer' as type
+-- from 
+-- 	customers 
 
-UNION ALL
+-- UNION ALL
 	
-select
-	City, companyname, contactname, 'supplier' as type
-from 
-	Suppliers
-ORDER BY 
-    City, Type;
-	;
+-- select
+-- 	City, companyname, contactname, 'supplier' as type
+-- from 
+-- 	Suppliers
+-- ORDER BY 
+--     City, Type;
+-- 	;
+
+SELECT c.City, c.CompanyName, c.ContactName, 'Customer' as Type
+FROM Customers c
+UNION
+SELECT s.City, s.CompanyName, s.ContactName, 'Supplier' as Type
+FROM Suppliers s;
