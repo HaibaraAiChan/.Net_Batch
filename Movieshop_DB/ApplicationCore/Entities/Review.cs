@@ -14,7 +14,7 @@ namespace ApplicationCore.Entities
         public int UserId { get; set; } // # foreign key
         [Column(TypeName = "decimal(3,2)")]
         public decimal Rating { get; set; }
-        public string ReviewText { get; set; }= string.Empty;
+        public string? ReviewText { get; set; }= string.Empty;
 
 
     }

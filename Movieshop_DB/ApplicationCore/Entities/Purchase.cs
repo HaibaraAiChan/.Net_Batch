@@ -17,7 +17,7 @@ namespace ApplicationCore.Entities
         [MaxLength(450)]
         public string PurchaseNumber { get; set; } = Guid.NewGuid().ToString();
         [Column(TypeName = "decimal(18,2)")]
-        public decimal TotalePrice { get; set; }
+        public decimal TotalPrice { get; set; }
         [Column(TypeName = "datetime2(7)")]
         public DateTime PurchaseDateTime { get; set; } = DateTime.UtcNow;
         
