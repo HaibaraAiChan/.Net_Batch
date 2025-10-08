@@ -1,0 +1,246 @@
+﻿@model ApplicationCore.Models.MovieDetailModel
+
+<!-- Main container for the movie details page -->
+<div class="container movie-details">
+    <!--
+        SECTION 1: Header with Poster and Basic Info
+        This section shows the movie poster on the left and basic info on the right
+    -->
+    <div class="row mb-4">
+        <!-- Left column for the movie poster -->
+        <div class="col-md-4">
+            <!-- Movie poster image with responsive class -->
+            <img src="@Model.PosterUrl" alt="@Model.Title Poster" class="img-fluid rounded poster">
+        </div>
+
+        <!-- Right column for movie information -->
+        <div class="col-md-8">
+            <!-- Movie title (h1 heading with display-4 for large text) -->
+            <h1 class="display-4">@Model.Title</h1>
+
+            <!-- Tagline in muted text -->
+            <p class="text-muted">@Model.Tagline</p>
+
+            <!-- Badges section for key movie attributes -->
+            <div class="d-flex flex-wrap mb-3">
+                <!-- Release year badge (only shown if available) -->
+                @if (Model.ReleaseDate.HasValue)
+                {
+                    <span class="badge bg-primary me-2 mb-2">
+                        @Model.ReleaseDate.Value.Year
+                    </span>
+                }
+
+                <!-- Runtime badge (converted from minutes to hours/minutes) -->
+                @if (Model.Runtime.HasValue)
+                {
+                    <span class="badge bg-secondary me-2 mb-2">
+                        @(Model.Runtime.Value / 60)h @(Model.Runtime.Value % 60)m
+                    </span>
+                }
+
+                <!-- Rating badge (formatted to 1 decimal place) -->
+                @if (Model.Rating.HasValue)
+                {
+                    <span class="badge bg-success me-2 mb-2">
+                        Rating: @Model.Rating.Value.ToString("0.0")
+                    </span>
+                }
+
+                <!-- Original language badge -->
+                <span class="badge bg-info me-2 mb-2">
+                    @Model.OriginalLanguage
+                </span>
+
+                <!-- Price badge (formatted as currency) -->
+                <span class="badge bg-warning text-dark me-2 mb-2">
+                    @string.Format("{0:C2}", Model.Price)
+                </span>
+            </div>
+
+            <!-- Movie overview section -->
+            <h4>Overview</h4>
+            <p>@Model.OverView</p>
+
+            <!-- Genres section (only shown if genres exist) -->
+            @if (Model.Genres != null && Model.Genres.Any())
+            {
+                <div class="mb-3">
+                    <h5>Genres</h5>
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <span class="badge bg-light text-dark me-1">@genre.Name</span>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <!--
+        SECTION 2: Financial Information
+        Shows budget and revenue in a card component
+    -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <!-- Bootstrap card component -->
+            <div class="card">
+                <div class="card-header">
+                    <h5>Financial Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- Budget column -->
+                        <div class="col-md-6">
+                            <p><strong>Budget:</strong> @(Model.Budget?.ToString("C0") ?? "N/A")</p>
+                        </div>
+                        <!-- Revenue column -->
+                        <div class="col-md-6">
+                            <p><strong>Revenue:</strong> @(Model.Revenue?.ToString("C0") ?? "N/A")</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+        SECTION 3: Cast Members
+        Displays cast in a responsive grid layout
+    -->
+    @if (Model.Casts != null && Model.Casts.Any())
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3>Cast</h3>
+                <!-- CSS Grid layout for cast members -->
+                <div class="cast-grid">
+                    @foreach (var cast in Model.Casts)
+                    {
+                        <div class="cast-member">
+                            <!-- Cast member image (if available) -->
+                            @if (!string.IsNullOrEmpty(cast.ProfilePath))
+                            {
+                                <img src="@cast.ProfilePath" alt="@cast.Name" class="img-thumbnail">
+                            }
+                            <!-- Cast member info -->
+                            <div class="cast-info">
+                                <h6>@cast.Name</h6>
+                                <p class="text-muted">@cast.Character</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!--
+        SECTION 4: Trailers
+        Shows available trailers with play buttons
+    -->
+    @if (Model.Trailers != null && Model.Trailers.Any())
+    {
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3>Trailers</h3>
+                <!-- Flex container for trailer buttons -->
+                <div class="trailer-container">
+                    @foreach (var trailer in Model.Trailers)
+                    {
+                        <div class="trailer-item">
+                            <!-- Button that links to trailer URL (opens in new tab) -->
+                            <a href="@trailer.TrailerUrl" target="_blank" class="btn btn-outline-primary">
+                                <i class="bi bi-play-circle-fill"></i> @trailer.Name
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!--
+        SECTION 5: External Links
+        Links to IMDb and TMDb if available
+    -->
+    <div class="row">
+        <div class="col-12">
+            <div class="external-links">
+                <!-- IMDb link button -->
+                @if (!string.IsNullOrEmpty(Model.ImdbUrl))
+                {
+                    <a href="@Model.ImdbUrl" target="_blank" class="btn btn-imdb">
+                        <i class="bi bi-film"></i> IMDb
+                    </a>
+                }
+                <!-- TMDb link button -->
+                @if (!string.IsNullOrEmpty(Model.TmdbUrl))
+                {
+                    <a href="@Model.TmdbUrl" target="_blank" class="btn btn-tmdb">
+                        <i class="bi bi-info-circle"></i> TMDb
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    CSS STYLES
+    Custom styles for this page only
+-->
+<style>
+    /* Main container spacing */
+    .movie-details {
+        margin-top: 20px;
+    }
+
+    /* Poster styling with shadow effect */
+    .poster {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* CSS Grid layout for cast members */
+    .cast-grid {
+        display: grid;
+        /* Responsive grid - fills available space with columns at least 150px wide */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px; /* Space between grid items */
+    }
+
+    /* Individual cast member styling */
+    .cast-member {
+        text-align: center;
+    }
+
+        /* Cast member image styling */
+        .cast-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+    /* Trailer container uses flexbox */
+    .trailer-container {
+        display: flex;
+        flex-wrap: wrap; /* Allows items to wrap to next line */
+        gap: 10px; /* Space between items */
+    }
+
+    /* Custom IMDb button style */
+    .btn-imdb {
+        background-color: #f5c518; /* IMDb yellow */
+        color: #000;
+    }
+
+    /* Custom TMDb button style */
+    .btn-tmdb {
+        background-color: #01b4e4; /* TMDb blue */
+        color: #fff;
+    }
+
+    /* External links section spacing */
+    .external-links {
+        margin-top: 20px;
+    }
+</style>
