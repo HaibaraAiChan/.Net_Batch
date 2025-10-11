@@ -8,7 +8,8 @@ using ApplicationCore.Models;
 
 namespace Infrastructure.Services
 {
-    public class MovieServiceMock: IMovieService
+    public class MovieServiceMock 
+    //public class MovieServiceMock: IMovieService
     {
         public List<MovieCard> Get30HighestGrossingMovies() 
         {

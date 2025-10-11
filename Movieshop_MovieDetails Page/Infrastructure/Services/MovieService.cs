@@ -18,21 +18,10 @@ namespace Infrastructure.Services
         {
             _movieRepository = movieRepository;
         }
-        public List<MovieCard> Get30HighestGrossingMovies()
+        public async Task<List<MovieCard>> Get30HighestGrossingMovies()
         {
-            //Console.WriteLine($"hello ");
-            //var movies = new List<MovieCard>()
-            //{
-            //    new MovieCard{ Id=1, Title="Avatar", PosterUrl="https://m.media-amazon.com/images/M/MV5BMjEwMjY3NjcxNF5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_.jpg"},
-            //    new MovieCard{ Id=2, Title="Avengers: Endgame", PosterUrl="https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzY4ODAzNzM@._V1_.jpg"},
-            //    new MovieCard{ Id=3, Title="Titanic", PosterUrl="https://m.media-amazon.com/images/M/MV5BMDdmZGU3NDQtY2E3ZS00Y2JiLWEzNTEtODM1ZmJlZWIyMWFjXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg"},
-            //    new MovieCard{ Id=4, Title="Star Wars: The Force Awakens", PosterUrl="https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_.jpg"},
-            //    new MovieCard{ Id=5, Title="Avengers: Infinity War", PosterUrl="https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg"},
-            //    //new MovieCard{ Id=6, Title="Spider
-            //};
-
-            //return movies;
-            var movies = _movieRepository.GetTop30GrossingMovies();
+            
+            var movies = await _movieRepository.GetTop30GrossingMovies();
 
             var movieCards = new List<MovieCard>();
             
@@ -49,9 +38,9 @@ namespace Infrastructure.Services
 
             return movieCards;
         }
-        public MovieDetailModel GetMovieDetails(int id)
+        public async Task<MovieDetailModel> GetMovieDetails(int id)
         {
-            var movie = _movieRepository.GetById(id);
+            var movie = await _movieRepository.GetById(id);
             if (movie == null)
             {
                 // handle movie not found, maybe throw an exception or return null
@@ -97,6 +86,17 @@ namespace Infrastructure.Services
             
            
             return movieDetails;
+        }
+
+        public async Task<PagedResultSet<MovieCard>> GetMoviesByGenrePagination(int genreId, int pageSize = 30, int pageNumber = 1)
+        {
+            var pagedMovies = await _movieRepository.GetMoviesByGenre(genreId, pageSize, pageNumber);
+            var movieCards = new List<MovieCard>();
+            movieCards.AddRange(pagedMovies.Data.Select(m => new MovieCard{ Id=m.Id, Title=m.Title,PosterUrl=m.PosterUrl}));
+
+            var pagedResultSet = new PagedResultSet<MovieCard>( movieCards, pageNumber, pagedMovies.PageSize, pagedMovies.Count);
+                
+            return pagedResultSet;
         }
     }
 }
