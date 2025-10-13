@@ -1,0 +1,33 @@
+﻿
+@using MovieshopMVC.Services
+@* @inject IAccountService accountService *@
+@inject ICurrentUser currentUser
+
+@if (!currentUser.IsAuthenticated)
+{
+    <div class=" text-end d-flex justify-content-end gap-2">
+        <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Login">Login</a> 
+        <a class="btn btn-outline-primary" asp-controller="Account" asp-action="Register">Register</a>
+    </div>    
+}
+else
+{
+    <div class=" text-end ">
+        <ul class="nav">
+            <li class="nav-item dropdown text-capitalize">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expaned="false">
+                    @currentUser.FullName
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" asp-controller="User" asp-action="Purchases"> Library </a>
+                        <a class="dropdown-item" asp-controller="User" asp-action="Favorites"> Favorites </a>
+                        <a class="dropdown-item" asp-controller="Account" asp-action="Profile">Account</a>
+                        <a class="dropdown-item" asp-controller="Account" asp-action="Logout">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+    </div>    
+}

@@ -49,6 +49,10 @@ namespace MovieshopMVC.Controllers
         [HttpPost]//    [Route("Register")] for submit button
         public async Task<IActionResult> Register(RegisterModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             var usr= await _accountService.RegisterUser(model);
             return RedirectToAction("Login");
 
@@ -57,5 +61,11 @@ namespace MovieshopMVC.Controllers
         //{
         //    return View();
         //}
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return LocalRedirect("~/");
+        }
     }
 }

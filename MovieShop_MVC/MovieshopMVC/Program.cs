@@ -5,6 +5,7 @@ using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using MovieshopMVC.Services;
 
 
 
@@ -18,6 +19,8 @@ builder.Services.AddScoped<IUserRepositry, UserRepository>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 builder.Services.AddScoped<IMovieService, MovieService>();
+builder.Services.AddScoped<ICurrentUser,CurrentUser>();
+builder.Services.AddHttpContextAccessor();
 
 //builder.Services.AddScoped<IMovieService, MovieServiceMock>(); # to use mock service instead of real service
 
