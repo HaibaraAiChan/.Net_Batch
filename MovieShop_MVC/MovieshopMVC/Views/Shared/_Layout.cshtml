@@ -28,11 +28,15 @@
                     </ul>
                 </div>
             </div>
+            <partial name="_LoginInfo"/>
+            @* <partial name="_SearchPartial" /> *@
+            @* <partial name="_LogOut"/> *@
         </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            @RenderBody() 
+            @* -- This is where the view content will be injected, it will vary based on the specific view being rendered. *@
         </main>
     </div>
 
