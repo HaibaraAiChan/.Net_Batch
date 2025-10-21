@@ -1,0 +1,44 @@
+2025-10-20 20:51:05.565 -07:00 [INF] HTTP GET / responded 200 in 1758.5153 ms
+2025-10-20 20:51:13.128 -07:00 [INF] Rendering Login View
+2025-10-20 20:51:13.188 -07:00 [INF] HTTP GET /account/login responded 200 in 71.7160 ms
+2025-10-20 20:51:13.636 -07:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js responded 200 in 15.1970 ms
+2025-10-20 20:51:13.636 -07:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js responded 200 in 15.3975 ms
+2025-10-20 20:51:15.445 -07:00 [INF] Rendering Login View
+2025-10-20 20:51:15.456 -07:00 [INF] HTTP GET /account/login responded 200 in 14.9894 ms
+2025-10-20 20:51:15.571 -07:00 [INF] HTTP GET /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js responded 200 in 79.4630 ms
+2025-10-20 20:51:15.571 -07:00 [INF] HTTP GET /lib/jquery-validation/dist/jquery.validate.min.js responded 200 in 54.4115 ms
+2025-10-20 20:51:19.452 -07:00 [INF] HTTP POST /Account/Login responded 302 in 142.3242 ms
+2025-10-20 20:51:19.467 -07:00 [INF] HTTP GET /Home/Error responded 200 in 7.8418 ms
+2025-10-20 20:55:54.939 -07:00 [INF] HTTP GET / responded 200 in 1709.4069 ms
+2025-10-20 20:55:56.666 -07:00 [INF] Rendering Login View
+2025-10-20 20:55:56.710 -07:00 [INF] HTTP GET /account/login responded 200 in 55.4472 ms
+2025-10-20 20:55:58.211 -07:00 [INF] Rendering Login View
+2025-10-20 20:55:58.219 -07:00 [INF] HTTP GET /account/login responded 200 in 13.9220 ms
+2025-10-20 20:56:21.247 -07:00 [INF] Rendering Login View
+2025-10-20 20:56:21.404 -07:00 [INF] HTTP GET /account/login responded 200 in 188.2192 ms
+2025-10-20 20:56:22.559 -07:00 [INF] Rendering Login View
+2025-10-20 20:56:22.568 -07:00 [INF] HTTP GET /account/login responded 200 in 13.4863 ms
+2025-10-20 20:56:26.568 -07:00 [INF] HTTP GET / responded 200 in 10583.1812 ms
+2025-10-20 20:56:56.323 -07:00 [INF] HTTP GET / responded 200 in 1879.8779 ms
+2025-10-20 20:56:59.809 -07:00 [INF] Rendering Login View
+2025-10-20 20:56:59.852 -07:00 [INF] HTTP GET /account/login responded 200 in 54.7219 ms
+2025-10-20 20:57:02.148 -07:00 [INF] HTTP GET /movies/genres/1 responded 200 in 162.3038 ms
+2025-10-20 20:57:09.974 -07:00 [INF] Rendering Login View
+2025-10-20 20:57:09.983 -07:00 [INF] HTTP GET /account/login responded 200 in 10.0998 ms
+2025-10-20 20:57:11.629 -07:00 [INF] Rendering Login View
+2025-10-20 20:57:11.635 -07:00 [INF] HTTP GET /account/login responded 200 in 8.1157 ms
+2025-10-20 20:57:16.838 -07:00 [INF] HTTP POST /Account/Login responded 302 in 153.1349 ms
+2025-10-20 20:57:16.854 -07:00 [INF] HTTP GET /Home/Error responded 200 in 7.3827 ms
+2025-10-20 21:03:41.303 -07:00 [INF] HTTP GET / responded 200 in 1768.0175 ms
+2025-10-20 21:03:50.697 -07:00 [INF] HTTP GET /account/register responded 200 in 73.5859 ms
+2025-10-20 21:04:11.851 -07:00 [INF] HTTP GET /Account/Logout responded 302 in 11.6684 ms
+2025-10-20 21:04:11.910 -07:00 [INF] HTTP GET / responded 200 in 51.1861 ms
+2025-10-20 21:04:19.402 -07:00 [INF] Rendering Login View
+2025-10-20 21:04:19.422 -07:00 [INF] HTTP GET /account/login responded 200 in 27.4307 ms
+2025-10-20 21:04:23.618 -07:00 [INF] HTTP POST /Account/Login responded 302 in 177.5493 ms
+2025-10-20 21:04:23.663 -07:00 [INF] HTTP GET / responded 200 in 37.7489 ms
+2025-10-20 21:04:33.215 -07:00 [INF] HTTP GET /Account/Logout responded 302 in 0.9940 ms
+2025-10-20 21:04:33.253 -07:00 [INF] HTTP GET / responded 200 in 30.2911 ms
+2025-10-20 21:04:44.580 -07:00 [INF] Rendering Login View
+2025-10-20 21:04:44.589 -07:00 [INF] HTTP GET /account/login responded 200 in 9.5121 ms
+2025-10-20 21:04:50.104 -07:00 [INF] HTTP GET /Home/Error responded 200 in 4.4267 ms
