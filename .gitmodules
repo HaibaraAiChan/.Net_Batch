@@ -1,0 +1,3 @@
+[submodule "movieshopspa"]
+	path = movieshopspa
+	url = https://github.com/HaibaraAiChan/movieshop_spa.git
