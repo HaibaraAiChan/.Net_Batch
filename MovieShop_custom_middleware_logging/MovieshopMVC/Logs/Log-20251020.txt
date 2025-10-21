@@ -1,0 +1,148 @@
+2025-10-20 20:54:30.164 -07:00 [INF] HTTP GET / responded 200 in 1737.0723 ms
+2025-10-20 20:54:30.248 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:54:30.264 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:54:30.268 -07:00 [ERR] Connection id "0HNGGAM41FT37", Request id "0HNGGAM41FT37:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-10-20 20:54:33.146 -07:00 [INF] Rendering Login View
+2025-10-20 20:54:33.147 -07:00 [ERR] This is a sample error log for Login View
+2025-10-20 20:54:33.187 -07:00 [INF] HTTP GET /account/login responded 200 in 54.0573 ms
+2025-10-20 20:54:33.252 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:54:33.252 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:54:33.253 -07:00 [ERR] Connection id "0HNGGAM41FT37", Request id "0HNGGAM41FT37:00000007": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-10-20 20:54:35.989 -07:00 [INF] Rendering Login View
+2025-10-20 20:54:35.989 -07:00 [ERR] This is a sample error log for Login View
+2025-10-20 20:54:35.997 -07:00 [INF] HTTP GET /account/login responded 200 in 14.6430 ms
+2025-10-20 20:54:36.021 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:54:36.022 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:54:36.024 -07:00 [ERR] Connection id "0HNGGAM41FT37", Request id "0HNGGAM41FT37:0000000B": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-10-20 20:54:53.733 -07:00 [INF] HTTP GET /account/register responded 200 in 28.3963 ms
+2025-10-20 20:54:53.749 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:54:53.749 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:54:53.750 -07:00 [ERR] Connection id "0HNGGAM41FT37", Request id "0HNGGAM41FT37:00000011": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-10-20 20:55:32.968 -07:00 [INF] HTTP GET / responded 200 in 1789.5228 ms
+2025-10-20 20:55:33.048 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:55:33.063 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:55:33.069 -07:00 [ERR] Connection id "0HNGGAMMQUI8L", Request id "0HNGGAMMQUI8L:00000001": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-10-20 20:55:35.989 -07:00 [INF] Rendering Login View
+2025-10-20 20:55:35.989 -07:00 [ERR] This is a sample error log for Login View
+2025-10-20 20:55:36.034 -07:00 [INF] HTTP GET /account/login responded 200 in 56.0138 ms
+2025-10-20 20:55:36.096 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:55:36.097 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:55:36.097 -07:00 [ERR] Connection id "0HNGGAMMQUI8L", Request id "0HNGGAMMQUI8L:00000007": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+2025-10-20 20:55:37.245 -07:00 [INF] Rendering Login View
+2025-10-20 20:55:37.245 -07:00 [ERR] This is a sample error log for Login View
+2025-10-20 20:55:37.255 -07:00 [INF] HTTP GET /account/login responded 200 in 18.9931 ms
+2025-10-20 20:55:37.283 -07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-10-20 20:55:37.284 -07:00 [WRN] The response has already started, the error page middleware will not be executed.
+2025-10-20 20:55:37.285 -07:00 [ERR] Connection id "0HNGGAMMQUI8L", Request id "0HNGGAMMQUI8L:0000000B": An unhandled exception was thrown by the application.
+System.InvalidOperationException: StatusCode cannot be set because the response has already started.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ThrowResponseAlreadyStartedException(String value)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.set_StatusCode(Int32 value)
+   at Microsoft.AspNetCore.Http.DefaultHttpResponse.Redirect(String location, Boolean permanent)
+   at MovieshopMVC.Middlewares.MovieShopExceptionMiddleware.Invoke(HttpContext httpContext) in C:\Users\ysy\source\repos\Movieshop\MovieshopMVC\Middlewares\MovieShopExceptionMiddleware.cs:line 43
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+   at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
